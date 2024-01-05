@@ -1,3 +1,5 @@
+import '@766aya/extension-text-color'
+
 import { Extension } from '@tiptap/core'
 
 export type ColorOptions = {

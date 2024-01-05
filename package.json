@@ -48,6 +48,7 @@
     "@lerna/batch-packages": "^3.16.0",
     "@lerna/filter-packages": "^5.6.2",
     "@lerna/project": "^5.6.2",
+    "@nrwl/nx-cloud": "^16.5.2",
     "@rollup/plugin-babel": "^5.3.0",
     "@rollup/plugin-commonjs": "^21.0.1",
     "@rollup/plugin-node-resolve": "^13.1.3",
