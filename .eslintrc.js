@@ -107,6 +107,7 @@ module.exports = {
         '@typescript-eslint/explicit-module-boundary-types': 'off',
         'simple-import-sort/imports': 'error',
         'simple-import-sort/exports': 'error',
+        'linebreak-style': 'off',
       },
     },
   ],

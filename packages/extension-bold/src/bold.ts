@@ -49,17 +49,17 @@ export const Bold = Mark.create<BoldOptions>({
       },
       {
         tag: 'b',
-        getAttrs: node => (node as HTMLElement).style.fontWeight !== 'normal' && null,
+        getAttrs: (node: HTMLElement) => (node as HTMLElement).style.fontWeight !== 'normal' && null,
       },
       {
         style: 'font-weight',
-        getAttrs: value => /^(bold(er)?|[5-9]\d{2,})$/.test(value as string) && null,
+        getAttrs: (value: string) => /^(bold(er)?|[5-9]\d{2,})$/.test(value as string) && null,
       },
     ]
   },
 
   renderHTML({ HTMLAttributes }) {
-    return ['strong', mergeAttributes(this.options.HTMLAttributes, HTMLAttributes), 0]
+    return ['b', mergeAttributes(this.options.HTMLAttributes, HTMLAttributes), 0]
   },
 
   addCommands() {
