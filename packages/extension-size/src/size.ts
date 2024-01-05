@@ -1,29 +1,29 @@
 import { Extension } from '@tiptap/core'
 
-export type ColorOptions = {
+export type SizeOptions = {
   types: string[],
 }
 
 declare module '@tiptap/core' {
   interface Commands<ReturnType> {
-    color: {
+    size: {
       /**
-       * Set the text color
+       * Set the text size
        */
-      setColor: (color: string) => ReturnType,
+      setSize: (size: number) => ReturnType,
       /**
-       * Unset the text color
+       * Unset the text size
        */
-      unsetColor: () => ReturnType,
+      unsetSize: () => ReturnType,
     }
   }
 }
 
-export const Color = Extension.create<ColorOptions>({
-  name: 'color',
+export const Size = Extension.create<SizeOptions>({
+  name: 'size',
   addOptions() {
     return {
-      types: ['textColor'],
+      types: ['textSize'],
     }
   },
   addGlobalAttributes() {
@@ -31,17 +31,17 @@ export const Color = Extension.create<ColorOptions>({
       {
         types: this.options.types,
         attributes: {
-          color: {
+          size: {
             default: null,
             parseHTML: element => {
-              return element.style.getPropertyValue('--color')?.replace(/['"]+/g, '')
+              return element.style.fontSize?.replace(/['"]+/g, '')
             },
             renderHTML: attributes => {
-              if (!attributes.color) {
+              if (!attributes.size) {
                 return {}
               }
               return {
-                style: `--color: ${attributes.color}`,
+                style: `--size: ${attributes.size}`,
               }
             },
           },
@@ -51,14 +51,14 @@ export const Color = Extension.create<ColorOptions>({
   },
   addCommands() {
     return {
-      setColor: color => ({ chain }) => {
+      setSize: size => ({ chain }) => {
         return chain()
-          .setMark('textColor', { color })
+          .setMark('textSize', { size })
           .run()
       },
-      unsetColor: () => ({ chain }) => {
+      unsetSize: () => ({ chain }) => {
         return chain()
-          .setMark('textColor', { color: null })
+          .setMark('textSize', { size: null })
           .removeEmptyTextStyle()
           .run()
       },

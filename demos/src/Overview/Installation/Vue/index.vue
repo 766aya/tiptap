@@ -10,13 +10,11 @@ export default {
   components: {
     EditorContent,
   },
-
   data() {
     return {
       editor: null,
     }
   },
-
   mounted() {
     this.editor = new Editor({
       content: '<p>Hello World! 🌎️</p>',
