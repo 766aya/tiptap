@@ -1,5 +1,5 @@
 {
-  "name": "@tiptap/extension-document",
+  "name": "@766aya/extension-document",
   "description": "document extension for tiptap",
   "version": "2.2.0-rc.7",
   "homepage": "https://tiptap.dev",
@@ -33,11 +33,6 @@
   },
   "peerDependencies": {
     "@tiptap/core": "^2.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ueberdosis/tiptap",
-    "directory": "packages/extension-document"
   },
   "scripts": {
     "clean": "rm -rf dist",

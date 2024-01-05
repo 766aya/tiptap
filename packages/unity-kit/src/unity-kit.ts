@@ -1,27 +1,42 @@
+import { Bold, BoldOptions } from '@766aya/extension-bold'
+import { Color, ColorOptions } from '@766aya/extension-color'
+import { Document } from '@766aya/extension-document'
+import { Italic, ItalicOptions } from '@766aya/extension-italic'
+import { Size, SizeOptions } from '@766aya/extension-size'
+import { TextColor } from '@766aya/extension-text-color'
+import { TextSize } from '@766aya/extension-text-size'
 import { Extension } from '@tiptap/core'
-import { Bold, BoldOptions } from '@tiptap/extension-bold'
-import { Document } from '@tiptap/extension-document'
 import { Dropcursor, DropcursorOptions } from '@tiptap/extension-dropcursor'
 import { Gapcursor } from '@tiptap/extension-gapcursor'
 import { History, HistoryOptions } from '@tiptap/extension-history'
-import { Italic, ItalicOptions } from '@tiptap/extension-italic'
 import { Text } from '@tiptap/extension-text'
 
-export interface StarterKitOptions {
+export interface UnityKitOptions {
   bold: Partial<BoldOptions> | false,
   document: false,
   dropcursor: Partial<DropcursorOptions> | false,
   gapcursor: false,
   history: Partial<HistoryOptions> | false,
   italic: Partial<ItalicOptions> | false,
+  color: Partial<ColorOptions> | false,
+  size: Partial<SizeOptions> | false,
   text: false,
+  textStyle: false,
+  textColor: false,
+  textSize: false,
 }
 
-export const StarterKit = Extension.create<StarterKitOptions>({
-  name: 'starterKit',
-
+export const UnityKit = Extension.create<UnityKitOptions>({
+  name: 'unityKit',
   addExtensions() {
     const extensions = []
+
+    if (this.options.textColor !== false) {
+      extensions.push(TextColor.configure(this.options?.textColor))
+    }
+    if (this.options.textSize !== false) {
+      extensions.push(TextSize.configure(this.options?.textSize))
+    }
 
     if (this.options.bold !== false) {
       extensions.push(Bold.configure(this.options?.bold))
@@ -49,6 +64,13 @@ export const StarterKit = Extension.create<StarterKitOptions>({
 
     if (this.options.text !== false) {
       extensions.push(Text.configure(this.options?.text))
+    }
+
+    if (this.options.textColor !== false && this.options.color !== false) {
+      extensions.push(Color.configure(this.options?.color))
+    }
+    if (this.options.textSize !== false && this.options.size !== false) {
+      extensions.push(Size.configure(this.options?.size))
     }
 
     return extensions

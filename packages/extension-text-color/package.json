@@ -1,5 +1,5 @@
 {
-  "name": "@tiptap/extension-color",
+  "name": "@766aya/extension-text-color",
   "description": "text color extension for tiptap",
   "version": "2.2.0-rc.7",
   "homepage": "https://tiptap.dev",
@@ -15,7 +15,7 @@
   "type": "module",
   "exports": {
     ".": {
-      "types": "./dist/packages/extension-color/src/index.d.ts",
+      "types": "./dist/packages/extension-text-color/src/index.d.ts",
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     }
@@ -23,7 +23,7 @@
   "main": "dist/index.cjs",
   "module": "dist/index.js",
   "umd": "dist/index.umd.js",
-  "types": "dist/packages/extension-color/src/index.d.ts",
+  "types": "dist/packages/extension-text-color/src/index.d.ts",
   "files": [
     "src",
     "dist"
@@ -35,11 +35,6 @@
   "peerDependencies": {
     "@tiptap/core": "^2.0.0",
     "@tiptap/extension-text-style": "^2.0.0"
-  },
-  "repository": {
-    "type": "git",
-    "url": "https://github.com/ueberdosis/tiptap",
-    "directory": "packages/extension-color"
   },
   "scripts": {
     "clean": "rm -rf dist",
