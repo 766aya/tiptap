@@ -51,6 +51,7 @@ export default {
           declaration: true,
           paths: {
             '@tiptap/*': ['packages/*/src'],
+            '@766aya/*': ['packages/*/src'],
           },
         },
         include: null,

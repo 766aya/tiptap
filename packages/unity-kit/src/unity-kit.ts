@@ -21,7 +21,6 @@ export interface UnityKitOptions {
   color: Partial<ColorOptions> | false,
   size: Partial<SizeOptions> | false,
   text: false,
-  textStyle: false,
   textColor: false,
   textSize: false,
 }
@@ -66,13 +65,13 @@ export const UnityKit = Extension.create<UnityKitOptions>({
       extensions.push(Text.configure(this.options?.text))
     }
 
-    if (this.options.textColor !== false && this.options.color !== false) {
+    if (this.options.color !== false) {
       extensions.push(Color.configure(this.options?.color))
     }
-    if (this.options.textSize !== false && this.options.size !== false) {
+
+    if (this.options.size !== false) {
       extensions.push(Size.configure(this.options?.size))
     }
-
     return extensions
   },
 })
