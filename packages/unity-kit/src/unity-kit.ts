@@ -9,6 +9,7 @@ import { Extension } from '@tiptap/core'
 import { Dropcursor, DropcursorOptions } from '@tiptap/extension-dropcursor'
 import { Gapcursor } from '@tiptap/extension-gapcursor'
 import { History, HistoryOptions } from '@tiptap/extension-history'
+import { Paragraph, ParagraphOptions } from '@tiptap/extension-paragraph'
 import { Text } from '@tiptap/extension-text'
 
 export interface UnityKitOptions {
@@ -20,6 +21,7 @@ export interface UnityKitOptions {
   italic: Partial<ItalicOptions> | false,
   color: Partial<ColorOptions> | false,
   size: Partial<SizeOptions> | false,
+  paragraph: Partial<ParagraphOptions> | false,
   text: false,
   textColor: false,
   textSize: false,
@@ -67,6 +69,10 @@ export const UnityKit = Extension.create<UnityKitOptions>({
 
     if (this.options.color !== false) {
       extensions.push(Color.configure(this.options?.color))
+    }
+
+    if (this.options.paragraph !== false) {
+      extensions.push(Paragraph.configure(this.options?.paragraph))
     }
 
     if (this.options.size !== false) {

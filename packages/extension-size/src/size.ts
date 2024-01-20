@@ -36,7 +36,7 @@ export const Size = Extension.create<SizeOptions>({
           size: {
             default: null,
             parseHTML: element => {
-              return element.style.fontSize?.replace(/['"]+/g, '')
+              return element.style.getPropertyValue('--size')?.replace(/['"]+/g, '')
             },
             renderHTML: attributes => {
               if (!attributes.size) {
